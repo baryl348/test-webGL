@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webGl</title>
+</head>
+<body>
+    <canvas id="glcanvas" width="840" height="680">
+        Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
+      </canvas>
+      <script src="./script.js" type="module"></script>
+      <script src="./sylvester-0-1-3/sylvester.js"></script>
+      <script src="./sylvester-0-1-3/sylvester.src.js"></script>
+      <script id="shader-fs" type="x-shader/x-fragment">
+        void main(void) {
+          gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+        }
+      </script>
+      <script id="shader-vs" type="x-shader/x-vertex">
+        attribute vec3 aVertexPosition;
+      
+        uniform mat4 uMVMatrix;
+        uniform mat4 uPMatrix;
+      
+        void main(void) {
+          gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+        }
+      </script>
+
+</body>
+</html>
